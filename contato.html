@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            backdrop-filter: blur(4px);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 48px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #111;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        .content-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .texto {
+            flex: 1;
+        }
+
+        .texto h3 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #2091e1;
+        }
+
+        .texto p {
+            font-size: 18px;
+            margin-bottom: 14px;
+        }
+
+        .imagem {
+            width: 35%;
+        }
+
+        .imagem img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 780px) {
+            .content-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .imagem {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+        <div class="logo">
+            <img src="Imagens/Logo.png" alt="Buen Sabor - logo">
+            <div>
+                <strong>Buen Sabor</strong>
+                <div style="font-size:12px;color:#666">Buffet de atendimento domiciliar!</div>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="Redes.html">Redes Sociais</a></li>
+                <li><a href="Avaliações.html">Perguntas Frequentes</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ÁREA PRINCIPAL -->
+<div class="content-container">
+
+    <div class="texto">
+        <h3>Contato</h3>
+        <p><strong>Email para atendimento:</strong> Buensaborbuffet@gmail.com</p>
+        <p><strong>Whatsapp:</strong> 61 98603-7514 📲</p>
+        <p>Entre em contato para orçamentos, dúvidas e atendimento personalizado.  
+           Será um prazer tornar seu evento ainda mais especial!</p>
+    </div>
+
+    <div class="imagem">
+        <img src="https://www.bertioga.sp.leg.br/imagens/icones-contato-azul.png/image" 
+             alt="Imagem de comunicação e atendimento">
+    </div>
+
+</div>
+
+</body>
+</html>
