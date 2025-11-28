@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perguntas Frequentes - Buen Sabor</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+            color: #333;
+        }
+
+        header{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));backdrop-filter: blur(4px);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(0,0,0,0.04)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{height:48px}
+    nav ul{display:flex;gap:18px;list-style:none}
+    nav a{color:var(--dark);text-decoration:none;font-weight:600}
+
+            h1 {
+            font-size: 28px;
+            color: #b22222;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .faq-item {
+            background: #fff;
+            margin-bottom: 12px;
+            padding: 18px 22px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: 0.2s;
+        }
+
+        .faq-item:hover {
+            transform: scale(1.02);
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <!-- Substitua por seu logo: assets/logo.png -->
+      <img src="Imagens/Logo.png" alt="Buen Sabor - logo">
+      <div>
+        <strong>Buen Sabor</strong>
+        <div style="font-size:12px;color:#666">Buffet de atendimento domiciliar!</div>
+      </div>
+    </div>
+    <nav>
+      <!-- Menu superior com <5 links fixos -->
+      <ul>
+          <li><a href="index.html">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="Redes.html">Redes Sociais</a></li>
+        <li><a href="Avaliações.html">Perguntas Frequentes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<h1>Perguntas Frequentes</h1>
+<div class="container">
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">Como funciona o serviço de buffet a domicílio?</div>
+        <div class="faq-answer">Oferecemos atendimento completo no local do evento, incluindo preparo, montagem e serviço. Também trabalhamos com entrega de pratos prontos.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">Vocês atendem quais regiões?</div>
+        <div class="faq-answer">Atendemos todo o Distrito Federal e entorno, dependendo do evento.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">O cardápio é personalizado?</div>
+        <div class="faq-answer">Sim! Montamos um menu exclusivo conforme o estilo do evento, número de convidados e preferências.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+        <div class="faq-question">Como posso solicitar um orçamento?</div>
+        <div class="faq-answer">Você pode entrar em contato pelo WhatsApp ou e-mail disponíveis na página de Contato.</div>
+    </div>
+
+</div>
+
+<script>
+function toggleFAQ(item) {
+    const answer = item.querySelector('.faq-answer');
+    const isVisible = answer.style.display === 'block';
+    answer.style.display = isVisible ? 'none' : 'block';
+}
+</script>
+
+</body>
+</html>

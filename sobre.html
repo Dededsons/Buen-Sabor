@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 20px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+    header{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));backdrop-filter: blur(4px);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(0,0,0,0.04)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{height:48px}
+    nav ul{display:flex;gap:18px;list-style:none}
+    nav a{color:var(--dark);text-decoration:none;font-weight:600}
+
+        .texto {
+            flex: 1;
+        }
+
+        .texto h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #b22222;
+        }
+
+        .texto p {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .imagem {
+            width: 40%;
+        }
+
+        .imagem img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <!-- Substitua por seu logo: assets/logo.png -->
+      <img src="Imagens/Logo.png" alt="Buen Sabor - logo">
+      <div>
+        <strong>Buen Sabor</strong>
+        <div style="font-size:12px;color:#666">Buffet de atendimento domiciliar!</div>
+      </div>
+    </div>
+    <nav>
+      <!-- Menu superior com <5 links fixos -->
+      <ul>
+          <li><a href="index.html">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="Redes.html">Redes Sociais</a></li>
+        <li><a href="Avaliações.html">Perguntas Frequentes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="container">
+
+        <div class="texto">
+            <h3>Sobre</h3>
+            <p><strong>Desde 2019 🍽🥂</strong></p>
+            <p id="sobre">
+                Somos um buffet de atendimento a domicílio dedicado a transformar momentos especiais em experiências inesquecíveis. Desde 2019, levamos praticidade, sabor e elegância diretamente até você, oferecendo um serviço completo pensado para tornar seu evento único.
+                <br><br>
+                Trabalhamos com menus personalizados, elaborados com ingredientes selecionados e preparados com cuidado, seja no local do evento ou entregues prontos para servir. Nosso compromisso vai além da gastronomia: buscamos proporcionar conforto, organização e um atendimento acolhedor, garantindo que cada detalhe contribua para a celebração perfeita.
+            </p>
+        </div>
+
+        <div class="imagem">
+            <img src="Imagens/Screenshot_11.png" alt="Imagem ilustrativa do buffet" />
+        </div>
+
+    </div>
+
+</body>
+</html>
