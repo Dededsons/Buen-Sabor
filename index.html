@@ -149,26 +149,28 @@ header {
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
+/* No seu CSS */
+
+/* Garante que o container ocupe a largura total com pouco respiro nas bordas */
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Manda logo pra esquerda e menu pra direita */
-    height: 80px;
-    position: relative;
+    width: 100% !important;
+    max-width: 100% !important; /* Permite que chegue nos cantos da tela */
+    padding: 0 15px !important; /* Controle aqui: quanto menor o número, mais no canto fica */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
 }
 
-/* Menu Mobile (Escondido por padrão no Desktop) */
+/* Ajuste específico do botão */
 .menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--color-primary);
-    background: none;
-    border: none;
-    z-index: 1001;
+    margin-right: -5px !important; /* Margem negativa "puxa" o botão para fora */
+    padding: 10px !important;      /* Aumenta a área de clique sem mover o ícone */
+    display: block;                /* Garante que ele seja tratado como bloco */
+}
+
+/* Ajuste da Logo para também não ficar colada demais (equilíbrio visual) */
+.logo {
+    margin-left: 0 !important;
 }
 
 /* Ajustes para Celular */
@@ -1111,4 +1113,5 @@ html, body {
     </script>
 </body>
 </html>
+
 
