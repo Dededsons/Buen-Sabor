@@ -738,6 +738,68 @@ header {
             .social-links { justify-content: center; }
             .footer-bottom { flex-direction: column; }
         }
+
+        /* ==========================================================================
+   CORREÇÃO DE BOTÕES SAINDO DA TELA
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* 1. Ajuste da Newsletter (Botão Inscrever-se) */
+    .newsletter-form {
+        display: flex !important;
+        flex-direction: column !important; /* Coloca o botão embaixo do input */
+        width: 100% !important;
+        background: transparent !important; /* Remove o fundo que limita o tamanho */
+        border: none !important;
+        gap: 10px !important;
+        padding: 0 !important;
+    }
+
+    .newsletter-form input {
+        width: 100% !important;
+        border-radius: 30px !important;
+        padding: 15px !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .newsletter-form button {
+        width: 100% !important; /* Botão ocupa a largura total do celular */
+        border-radius: 30px !important;
+        position: static !important; /* Remove qualquer posicionamento absoluto */
+        padding: 15px !important;
+    }
+
+    /* 2. Ajuste do Botão de WhatsApp (Floating Button) */
+    /* Se o seu botão for aquele que flutua no canto da tela: */
+    .whatsapp-float {
+        right: 15px !important; /* Garante que ele não saia pela direita */
+        bottom: 15px !important;
+        width: 50px !important; /* Tamanho adequado para o polegar */
+        height: 50px !important;
+    }
+
+    .whatsapp-float i {
+        font-size: 25px !important;
+    }
+
+    /* Se o botão de WhatsApp estiver dentro de uma seção: */
+    .btn-whatsapp {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* 3. Prevenção Global contra Scroll Lateral */
+html, body {
+    overflow-x: hidden !important;
+    position: relative !important;
+    width: 100% !important;
+}
     </style>
 </head>
 <body>
@@ -1049,3 +1111,4 @@ header {
     </script>
 </body>
 </html>
+
