@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato | Buen Sabor Buffet</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM (Sincronizado com a Home)
+           ========================================================================== */
+        :root {
+            --color-primary: #c84a7a;
+            --color-primary-dark: #a83a63;
+            --color-secondary: #2d3142;
+            --color-bg: #fcfbfb;
+            --color-surface: #ffffff;
+            --color-text-main: #222222;
+            --color-text-muted: #666666;
+            --shadow-md: 0 12px 32px rgba(0,0,0,0.06);
+            --radius-md: 16px;
+            --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* ==========================================================================
+           2. HEADER (GLASSMORPHISM)
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { height: 50px; }
+        .logo strong { font-family: 'Playfair Display'; font-size: 1.4rem; color: var(--color-secondary); }
+
+        nav ul { display: flex; gap: 25px; list-style: none; }
+        nav a { 
+            color: var(--color-secondary); text-decoration: none; 
+            font-weight: 500; transition: var(--transition);
+            position: relative;
+        }
+        nav a:hover { color: var(--color-primary); }
+
+        /* ==========================================================================
+           3. CONTATO - LAYOUT PRINCIPAL
+           ========================================================================== */
+        .contact-hero {
+            padding: 150px 0 60px;
+            text-align: center;
+            background: linear-gradient(to bottom, #fff, var(--color-bg));
+        }
+
+        .contact-hero h1 { font-size: 3rem; margin-bottom: 15px; }
+        .contact-hero p { color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        .main-grid {
+            max-width: 1200px; margin: 0 auto 100px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* Informações de Contato */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--color-surface);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary-light);
+            box-shadow: 0 15px 35px rgba(200, 74, 122, 0.1);
+        }
+
+        .info-card i {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            background: #fdf0f5;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .info-card h4 { font-size: 1.2rem; margin-bottom: 5px; }
+        .info-card p { color: var(--color-text-muted); font-size: 0.95rem; }
+
+        /* Formulário Premium */
+        .contact-form-container {
+            background: var(--color-surface);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid #e1e1e1;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: #f9f9f9;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(200, 74, 122, 0.1);
+        }
+
+        textarea.form-control { resize: vertical; min-height: 120px; }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(200, 74, 122, 0.3);
+        }
+
+        /* Mapa e Elementos Visuais */
+        .map-container {
+            max-width: 1200px; margin: 0 auto 80px;
+            height: 400px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            filter: grayscale(0.2);
+        }
+
+        /* ==========================================================================
+           4. RESPONSIVIDADE
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .contact-hero h1 { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 600px) {
+            nav { display: none; } /* Menu hamburguer pode ser adicionado como na Home */
+            .contact-form-container { padding: 25px; }
+            .contact-hero { padding: 120px 20px 40px; }
+        }
+
+        /* Animação de Entrada */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav">
+            <a href="index.html" class="logo">
+                <img src="Imagens/Logo.png" alt="Buen Sabor Logo" onerror="this.src='https://via.placeholder.com/50'">
+                <div>
+                    <strong>Buen Sabor</strong>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="Avaliações.html">FAQ</a></li>
+                    <li><a href="Contato.html" style="color: var(--color-primary);">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact-hero fade-in">
+        <div class="container">
+            <h1>Vamos planejar seu <span>evento?</span></h1>
+            <p>Estamos ansiosos para ouvir suas ideias e transformar seu sonho em uma experiência gastronômica inesquecível.</p>
+        </div>
+    </section>
+
+    <main class="main-grid">
+        <div class="contact-info">
+            <a href="https://wa.me/5561986037514" target="_blank" class="info-card fade-in" style="animation-delay: 0.1s;">
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                    <h4>WhatsApp</h4>
+                    <p>(61) 98603-7514</p>
+                    <small style="color: var(--color-primary); font-weight: 600;">Clique para iniciar conversa</small>
+                </div>
+            </a>
+
+            <a href="mailto:Buensaborbuffet@gmail.com" class="info-card fade-in" style="animation-delay: 0.2s;">
+                <i class="far fa-envelope"></i>
+                <div>
+                    <h4>E-mail</h4>
+                    <p>Buensaborbuffet@gmail.com</p>
+                    <small>Respondemos em até 24h</small>
+                </div>
+            </a>
+
+            <div class="info-card fade-in" style="animation-delay: 0.3s;">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h4>Localização</h4>
+                    <p>Brasília — DF</p>
+                    <small>Atendimento em todo o Distrito Federal</small>
+                </div>
+            </div>
+
+            <div class="fade-in" style="margin-top: 10px; animation-delay: 0.4s;">
+                <img src="https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?auto=format&fit=crop&w=600&q=80" 
+                     alt="Buffet Experience" 
+                     style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); height: 200px; object-fit: cover;">
+            </div>
+        </div>
+
+        <div class="contact-form-container fade-in" style="animation-delay: 0.2s;">
+            <h3 style="margin-bottom: 25px; font-size: 1.8rem;">Solicite um Orçamento</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" class="form-control" placeholder="Como podemos te chamar?" required>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" class="form-control" placeholder="exemplo@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" class="form-control" placeholder="(61) 99999-9999" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de Evento</label>
+                    <select class="form-control">
+                        <option>Casamento</option>
+                        <option>Aniversário</option>
+                        <option>Evento Corporativo</option>
+                        <option>Jantar Particular</option>
+                        <option>Outros</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Mensagem / Detalhes do Evento</label>
+                    <textarea class="form-control" placeholder="Conte-nos um pouco sobre data, número de convidados e o que você imagina..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Enviar Solicitação <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <div class="map-container container fade-in">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122851.04259837691!2d-48.013589999999995!3d-15.7828062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a3d18ec9af275%3A0xa9716e6f9877b075!2zQnJhc8OtbGlhLCBERg!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: var(--color-text-muted); border-top: 1px solid #eee;">
+        <p>© <span id="year"></span> Buen Sabor Buffet — Brasília, DF</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Efeito simples de feedback no envio
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.btn-submit');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Enviando...';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+
+            setTimeout(() => {
+                alert('Obrigado! Sua mensagem foi enviada com sucesso. Nossa equipe entrará em contato em breve.');
+                this.reset();
+                btn.innerHTML = originalText;
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'all';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

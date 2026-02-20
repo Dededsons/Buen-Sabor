@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ | Buen Sabor Buffet</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM
+           ========================================================================== */
+        :root {
+            --color-primary: #c84a7a;
+            --color-primary-light: #fdf0f5;
+            --color-secondary: #2d3142;
+            --color-bg: #fcfbfb;
+            --color-surface: #ffffff;
+            --shadow-md: 0 12px 32px rgba(0,0,0,0.06);
+            --radius-md: 16px;
+            --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--color-bg);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2 { font-family: 'Playfair Display', serif; color: var(--color-secondary); }
+
+        /* ==========================================================================
+           2. HEADER (GLASSMORPHISM)
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { height: 50px; }
+        .logo strong { font-family: 'Playfair Display'; font-size: 1.4rem; color: var(--color-secondary); }
+
+        nav ul { display: flex; gap: 25px; list-style: none; }
+        nav a { 
+            color: var(--color-secondary); text-decoration: none; 
+            font-weight: 500; transition: var(--transition);
+        }
+        nav a:hover { color: var(--color-primary); }
+
+        /* ==========================================================================
+           3. FAQ CONTENT
+           ========================================================================== */
+        .faq-hero {
+            padding: 160px 0 60px;
+            text-align: center;
+            background: linear-gradient(to bottom, #fff, var(--color-bg));
+        }
+
+        .faq-hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
+        .faq-hero p { color: #777; font-size: 1.1rem; }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+        }
+
+        /* Estilo dos Items do FAQ */
+        .faq-item {
+            background: var(--color-surface);
+            margin-bottom: 16px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            overflow: hidden; /* Importante para a animação */
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        /* Botão/Trigger da Pergunta */
+        .faq-question {
+            width: 100%;
+            padding: 24px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            font-family: 'Outfit', sans-serif;
+            transition: var(--transition);
+        }
+
+        .faq-question i {
+            font-size: 1rem;
+            color: var(--color-primary);
+            transition: transform 0.4s ease;
+        }
+
+        /* Resposta (Conteúdo Escondido) */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+            background-color: #fcfcfc;
+        }
+
+        .faq-answer-content {
+            padding: 0 30px 30px 30px;
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Estado Aberto */
+        .faq-item.active {
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* Suficiente para o texto */
+            transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--color-primary);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Seção Final de Suporte */
+        .support-box {
+            background: var(--color-primary-light);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .support-box h3 { margin-bottom: 10px; }
+        .support-box p { margin-bottom: 25px; color: #666; }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-contact:hover {
+            background: var(--color-primary-dark);
+            transform: scale(1.05);
+        }
+
+        /* ==========================================================================
+           4. RESPONSIVIDADE
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .faq-hero h1 { font-size: 2.5rem; }
+            .nav-container { height: 70px; }
+            nav { display: none; }
+            .faq-question { font-size: 1.1rem; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="Imagens/Logo.png" alt="Buen Sabor Logo" onerror="this.src='https://via.placeholder.com/50'">
+                <div>
+                    <strong>Buen Sabor</strong>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Contato.html">Contato</a></li>
+                    <li><a href="Avaliações.html" style="color: var(--color-primary);">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="faq-hero">
+        <h1>Dúvidas <span>Frequentes</span></h1>
+        <p>Tudo o que você precisa saber para realizar seu evento conosco.</p>
+    </section>
+
+    <div class="container">
+        
+        <div class="faq-item">
+            <button class="faq-question">
+                Como funciona o serviço de buffet a domicílio?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Oferecemos atendimento completo no local do seu evento. Nossa equipe cuida de tudo: desde o preparo dos alimentos até a montagem das mesas e o serviço de copa. Também oferecemos a opção de entrega de pratos prontos (rotisseria) para eventos menores.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Vocês atendem quais regiões?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Atendemos com exclusividade todo o <strong>Distrito Federal</strong> e cidades do entorno. Para eventos em locais mais afastados, realizamos um cálculo de deslocamento sob consulta para garantir a mesma qualidade e frescor dos pratos.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                O cardápio pode ser totalmente personalizado?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Com certeza! Entendemos que cada evento é único. Temos sugestões de menus (Bronze, Prata e Ouro), mas podemos ajustar qualquer prato conforme restrições alimentares (opções veganas, sem glúten) ou preferências pessoais do cliente.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Com quanta antecedência devo reservar?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    Para garantir sua data, recomendamos a reserva com pelo menos <strong>15 a 30 dias</strong> de antecedência. No entanto, para eventos maiores como casamentos, o ideal é de 3 a 6 meses. Entre em contato para verificar disponibilidades de última hora!
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Como posso solicitar um orçamento oficial?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    O caminho mais rápido é através do nosso formulário na página de <a href="Contato.html" style="color: var(--color-primary);">Contato</a> ou pelo nosso WhatsApp direto. Informe a data prevista e o número aproximado de convidados para uma resposta mais precisa.
+                </div>
+            </div>
+        </div>
+
+        <div class="support-box">
+            <h3>Ainda não encontrou a resposta?</h3>
+            <p>Não se preocupe! Nossa equipe de atendimento está pronta para tirar todas as suas dúvidas agora mesmo.</p>
+            <a href="Contato.html" class="btn-contact">
+                <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: #999; border-top: 1px solid #eee;">
+        <p>© <span id="year"></span> Buen Sabor Buffet — Brasília, DF</p>
+    </footer>
+
+    <script>
+        // Atualiza o ano no rodapé
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Lógica do Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Fecha outros itens (opcional - se quiser que apenas um fique aberto)
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Alterna o item atual
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
