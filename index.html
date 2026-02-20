@@ -692,6 +692,113 @@
             .social-links { justify-content: center; }
             .footer-bottom { flex-direction: column; }
         }
+        /* ==========================================================================
+   CORRETOR DE PROPORÇÕES MOBILE (COPY & PASTE)
+   ========================================================================== */
+
+/* 1. Ajuste de Fontes Fluídas (Nunca ficam grandes demais no celular) */
+:root {
+    --fz-h1: clamp(2rem, 8vw, 3.5rem);
+    --fz-h2: clamp(1.8rem, 6vw, 2.5rem);
+    --fz-body: clamp(1rem, 2vw, 1.1rem);
+}
+
+/* 2. Reset de segurança para evitar Scroll Lateral */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%; /* Evita que o iOS mude o tamanho da fonte */
+}
+
+/* 3. Títulos Responsivos */
+h1 { font-size: var(--fz-h1) !important; }
+h2 { font-size: var(--fz-h2) !important; }
+p { font-size: var(--fz-body) !important; }
+
+/* 4. MEDIA QUERY PARA CELULARES (Até 768px) */
+@media (max-width: 768px) {
+    
+    /* Ajuste de Containers: Remove margens laterais excessivas */
+    .container, .content-container, .main-grid {
+        width: 92% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    /* Hero Section: Imagem em cima ou embaixo do texto de forma harmônica */
+    .hero {
+        padding-top: 120px !important;
+        padding-bottom: 40px !important;
+        text-align: center !important;
+    }
+
+    .hero-left, .hero-right {
+        width: 100% !important;
+    }
+
+    /* Botões: Largura total para facilitar o toque com o polegar */
+    .btn, .btn-primary, .btn-submit, .newsletter-form button {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        padding: 16px !important;
+    }
+
+    /* Newsletter: Transforma de linha para coluna */
+    .newsletter-form {
+        flex-direction: column !important;
+        background: transparent !important;
+        border: none !important;
+        gap: 10px !important;
+    }
+
+    .newsletter-form input {
+        background: #fff !important;
+        color: #333 !important;
+        border-radius: 50px !important;
+        padding: 15px !important;
+        border: 1px solid #ddd !important;
+    }
+
+    /* Carrossel: Ajusta altura para não ocupar a tela toda */
+    .slide img {
+        height: 280px !important;
+    }
+
+    /* Tabelas e Grids: Força 1 coluna apenas */
+    .grid, .grid-services, .footer-grid {
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+    }
+
+    /* Imagem de Contato: Garante que não fique gigante */
+    .imagem {
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Menu: Esconde a lista e garante que a logo não amasse */
+    .nav {
+        height: 70px !important;
+    }
+    
+    .nav ul {
+        display: none; /* Idealmente você usaria o menu hambúrguer que passei antes */
+    }
+}
+
+/* 5. Ajuste fino para telas MUITO pequenas (iPhone SE, etc) */
+@media (max-width: 380px) {
+    h1 { font-size: 1.8rem !important; }
+    .hero-card-badge {
+        display: none; /* Remove elementos flutuantes que poluem telas mini */
+    }
+}
     </style>
 </head>
 <body>
@@ -978,4 +1085,5 @@
 
     </script>
 </body>
+
 </html>
